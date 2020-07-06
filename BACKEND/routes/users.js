@@ -16,10 +16,20 @@ router.route('/').get((req,res) => {
 });
 // add new user
 router.route('/add').post((req,res) => {
-    const username = req.body.username;
-
-    const newUser = new User({username});
-
+    const {
+        username,
+        password,
+        emails,
+        firstName,
+        lastName,
+    } = req.body;
+    const newUser = new User({
+        username,
+        emails,
+        password,
+        firstName,
+        lastName,
+    });
     newUser.save()
     .then(() => res.json("User added!"))
     .catch(err => res.status(400).json('Error: ' + err));
@@ -40,24 +50,38 @@ router.route('/:id').delete((req,res) => {
 router.route("/update/:id").post((req,res)=> {
     User.findById(req.params.id)
     .then(user=>{
-        user.username = req.body.username
-        
+        if(req.body.username){
+            user.username = req.body.username
+        }
+        if(req.body.password){
+            user.password = req.body.password
+        }
+        if(req.body.emails){
+            user.emails = req.body.emails
+        }
+        if(req.body.firstName){
+            user.firstName = req.body.firstName
+        }
+        if(req.body.lastName){
+            user.lastName = req.body.lastName
+        }
         user.save()
         .then(()=> res.json("User updated!"))
+        .then(()=> res.status(400).json('Error: ( User update failed )' + err))
     })
     .catch(err => res.status(400).json('Error: ' + err))
 });
 //update user by overwriting object
-router.route("/update").post((req,res)=> {
-    User.findById(req.body.id)
-    .then(user=>{
-        user.username = req.body.username
+// router.route("/update").post((req,res)=> {
+//     User.findById(req.body.id)
+//     .then(user=>{
+//         user.username = req.body.username
         
-        user.save()
-        .then(()=> res.json("User updated!"))
-        .catch(err => res.status(400).json('Error: ' + err))
-    })
-    .catch(err => res.status(400).json('Error: ' + err))
-});
+//         user.save()
+//         .then(()=> res.json("User updated!"))
+//         .catch(err => res.status(400).json('Error: ' + err))
+//     })
+//     .catch(err => res.status(400).json('Error: ' + err))
+// });
 
 module.exports = router;
