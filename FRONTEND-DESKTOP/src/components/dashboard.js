@@ -52,7 +52,8 @@ const useStyles = makeStyles((theme) => ({
   },
   appBar: {
     zIndex: theme.zIndex.drawer + 1,
-    backgroundColor: "rgb(13, 36, 160)",
+    backgroundColor: "rgb(52, 62, 74)",
+    color: "rgb(244,244,244)",
     transition: theme.transitions.create(['width', 'margin'], {
       easing: theme.transitions.easing.sharp,
       duration: theme.transitions.duration.leavingScreen,
@@ -79,6 +80,7 @@ const useStyles = makeStyles((theme) => ({
     position: 'relative',
     whiteSpace: 'nowrap',
     width: drawerWidth,
+    background:"#00D096",
     transition: theme.transitions.create('width', {
       easing: theme.transitions.easing.sharp,
       duration: theme.transitions.duration.enteringScreen,
@@ -127,9 +129,8 @@ export default function Dashboard() {
     };
     const fixedHeightPaper = clsx(classes.paper, classes.fixedHeight);
 
-    return (
-        <div className={classes.root}>
-            <CssBaseline />
+    const appBar = () => {
+        return (
             <AppBar position="absolute" className={clsx(classes.appBar, open && classes.appBarShift)}>
                 <Toolbar className={classes.toolbar}>
                 <IconButton
@@ -165,6 +166,10 @@ export default function Dashboard() {
                 </IconButton>
                 </Toolbar>
             </AppBar>
+        )
+    };
+    const appDrawer = () => {
+        return (
             <Drawer
                 variant="permanent"
                 classes={{
@@ -182,10 +187,23 @@ export default function Dashboard() {
                 <Divider />
                 <List>{secondaryListItems}</List>
             </Drawer>
+        );
+    };
+    return (
+        <div className={classes.root}>
+            <CssBaseline />
+            {appBar()}
+            {appDrawer()}
             <main className={classes.content}>
                 <div className={classes.appBarSpacer} />
                 <Container maxWidth="lg" className={classes.container}>
                     Template text
+                    <img src="https://generative-placeholders.glitch.me/image?width=600&height=300&style=triangles&gap=30"></img>
+                    <img src="https://generative-placeholders.glitch.me/image?width=600&height=300&style=triangles&gap=50"></img>
+                    <img src="https://generative-placeholders.glitch.me/image?width=600&height=300&style=triangles&gap=60"></img>
+                    <img src="https://generative-placeholders.glitch.me/image?width=600&height=300&style=triangles&gap=70"></img>
+                    <img src="https://generative-placeholders.glitch.me/image?width=600&height=300&style=triangles&gap=80"></img>
+                    <img src="https://generative-placeholders.glitch.me/image?width=600&height=300&style=triangles&gap=10"></img>
                 <Box pt={4}>
                     <Copyright />
                 </Box>

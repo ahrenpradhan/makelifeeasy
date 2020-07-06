@@ -7,10 +7,7 @@ function App() {
   return (
     <>
       <Dashboard />
-        <div className="App">
-            Edit <code>src/App.js</code> and save to reload. 
-            {/* <SignUp/> */}
-        </div>
+      {/* <SignUp/> */}
       {/* <SignIn/> */}
     </>
   );
