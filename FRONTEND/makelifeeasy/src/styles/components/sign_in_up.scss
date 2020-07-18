@@ -1,0 +1,19 @@
+.sign_in_up--root {
+    height: 100vh;
+}
+
+.sign_in_up--image {
+    opacity: 0;
+    animation: fadeInAnimation ease 3s;
+    animation-iteration-count: 1; 
+    animation-fill-mode: forwards; 
+}
+
+@keyframes fadeInAnimation { 
+    20% { 
+        opacity: 0; 
+    }
+    100% { 
+        opacity: 1; 
+     } 
+} 
