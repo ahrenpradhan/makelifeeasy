@@ -1,0 +1,35 @@
+.sidedrawer-show {
+    animation: button_show ease 400ms;
+    animation-iteration-count: 1;
+    animation-fill-mode: forwards;
+}
+.sidedrawer-hide {
+    animation: button_hide ease 400ms;
+    animation-iteration-count: 1;
+    animation-fill-mode: forwards;
+    display: none !important;
+}
+
+@keyframes button_show{
+    0%{
+        opacity: 0;
+    }
+    25%{
+        opacity: 0;
+    }
+    100%{
+        opacity: 1;
+    }
+}
+@keyframes button_hide{
+    0%{
+        opacity: 1;
+    }
+    25%{
+        opacity: 0;
+        display: none !important;
+    }
+    100%{
+        display: none !important;
+    }
+}
