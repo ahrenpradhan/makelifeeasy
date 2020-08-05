@@ -204,6 +204,7 @@ class Createpage extends Component {
 							borderRadius: 4,
 							// background: 'rgb(252,252,252)',
 							display: 'flex',
+							maxHeight: 750,
 						}}>
 						<div
 							style={{
@@ -297,6 +298,8 @@ class Createpage extends Component {
 								flexGrow: 1,
 								display: 'flex',
 								flexDirection: 'column',
+								overflowY: 'auto',
+								overflowX: 'none',
 							}}>
 							{this.state.editMode ? (
 								this.state.selected.instructionId ? (
